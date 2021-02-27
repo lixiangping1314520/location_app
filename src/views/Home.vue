@@ -74,9 +74,9 @@ export default {
     }
   },
   created () {
-    // this.$nextTick(() => {
-    //   this.initMap()
-    // })
+    this.$nextTick(() => {
+      // this.initMap()
+    })
   },
   computed: {
     route () {
@@ -90,20 +90,20 @@ export default {
   methods: {
     // 路由跳转
     handleRoute (name, index) {
-      // this.active = index
+      this.active = index
       this.$router.push({
         name
       })
+    },
+    handle () {
+      Indicator.open('加载中...')
+      setTimeout(() => {
+        Indicator.close()
+      }, 2000)
+    },
+    handleShowSheetVisible () {
+      this.sheetVisible = true
     }
-    // handle () {
-    //   Indicator.open('加载中...')
-    //   setTimeout(() => {
-    //     Indicator.close()
-    //   }, 2000)
-    // },
-    // handleShowSheetVisible () {
-    //   this.sheetVisible = true
-    // }
   }
 }
 </script>

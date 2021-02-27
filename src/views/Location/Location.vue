@@ -56,9 +56,10 @@ export default {
   },
   created () {
     this.timer = setInterval(() => {
+      console.log("定时器")
       const wearerDeviceId = JSON.parse(localStorage.getItem('device')).wearerDeviceId
       this.getDeviceInfo(wearerDeviceId)
-    }, 60000)
+    }, 10000)
     this.$nextTick(() => {
       this.initMap()
       // 在地图上定位设备
@@ -81,6 +82,7 @@ export default {
     ...mapMutations(['setDevicePosition']),
     // 初始化地图
     initMap () {
+      console.log("1212")
       this.map = new AMap.Map('container', {
         // 调整窗口大小
         resizeEnable: true,
@@ -135,6 +137,7 @@ export default {
     },
     // 获取当前位置
     getDeviceInfo (wearerDeviceId) {
+      console.log(wearerDeviceId)
       this.$refs.link.href = `tel:${JSON.parse(localStorage.getItem('device')).wearerNumber}`
       this.$http.get(`${config.httpBaseUrl}/map/getMapuser`, {
         params: {

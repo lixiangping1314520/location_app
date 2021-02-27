@@ -36,14 +36,14 @@ Axios.interceptors.response.use(
     // console.log(res)
     if (res.data.code === 400) {
       // app &&
-      //   app.$message({
-      //     type: 'warning',
-      //     message: '登录身份过期，请重新登录。'
-      //   })
-      // sessionStorage.removeItem('token')
-      // sessionStorage.removeItem('user')
-      // // router.push({ name: 'login' })
-      // return Promise.reject(new Error('身份过期'))
+        app.$message({
+          type: 'warning',
+          message: '登录身份过期，请重新登录。'
+        })
+      sessionStorage.removeItem('token')
+      sessionStorage.removeItem('user')
+      // router.push({ name: 'login' })
+      return Promise.reject(new Error('身份过期'))
     } else {
       return res.data
     }

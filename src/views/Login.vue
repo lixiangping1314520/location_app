@@ -76,6 +76,7 @@ export default {
         })
       }
       Indicator.open('登陆中...')
+
       let timer = setTimeout(() => {
         Indicator.close()
         Toast({
@@ -84,30 +85,27 @@ export default {
         })
       }, 5000)
       this.$http.post(`${config.httpBaseUrl}/appuser/login`, data).then(res => {
-        clearTimeout(timer)
-        Indicator.close()
-        if (res.code === 200) {
-          this.$router.push({
-            name: 'Home'
-          })
+        // clearTimeout(timer)
+        // Indicator.close();
+        // if (res.code === 200) {
           this.$http.get(`${config.httpBaseUrl}/appuser/getappuser`, {
             params: {
               number: this.userInfo.name
             }}).then(res => {
-            if (res.code === 200) {
+            // if (res.code === 200) {
               this.setUser(res.date.appuser)
               localStorage.setItem('user', JSON.stringify(res.date.appuser))
               this.$router.push({
                 name: 'Home'
               })
-            }
+            // }
           })
-        } else {
-          Toast({
-            message: '登陆失败\n账号和密码输入错误',
-            iconClass: 'icon icon-success'
-          })
-        }
+        // } else {
+        //   Toast({
+        //     message: '登陆失败\n账号和密码输入错误',
+        //     iconClass: 'icon icon-success'
+        //   })
+        // }
       })
     },
     goRePassword () {
