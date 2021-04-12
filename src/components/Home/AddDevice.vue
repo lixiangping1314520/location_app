@@ -46,6 +46,7 @@ export default {
     },
     handleNext () {
       if (!this.code) {
+        console.log(this.code)
         return Toast({
           message: '注册码不能为空',
           iconClass: 'icon icon-success'
@@ -55,9 +56,10 @@ export default {
       this.$http.get(`${config.httpBaseUrl}/wearer/Judge`, {
         params: {
           appuserId: JSON.parse(localStorage.getItem('user')).appuserId,
-          wearerDeviceId: this.code.split('').filter((item, index) => {
-            return index !== 0 && index !== 3 && index !== 6 && index !== 10 && index !== 14
-          }).join('')
+          // wearerDeviceId: this.code.split('').filter((item, index) => {
+          //   return index !== 0 && index !== 3 && index !== 6 && index !== 10 && index !== 14
+          // }).join('');
+          wearerDeviceId:this.code,
         }
       }).then(res => {
         if (res.code === 200) {

@@ -1,7 +1,7 @@
 var config = {
   // httpBaseUrl: 'http://129.28.45.106:8087',
   // httpBaseUrl: 'http://139.155.34.118:8087',
-  httpBaseUrl: 'http://118.89.247.254:8087',
+  httpBaseUrl: 'http://42.193.52.22:8087',
 }
 
 function a () {

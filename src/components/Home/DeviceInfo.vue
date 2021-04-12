@@ -122,9 +122,7 @@ export default {
       this.deviceInfo.wearerBirthday = this.moment(data).format('YYYY-MM-DD')
     },
     handlecomfirm () {
-      let wearerDeviceId = this.code.split('').filter((item, index) => {
-        return index !== 0 && index !== 3 && index !== 6 && index !== 10 && index !== 14
-      }).join('')
+      let wearerDeviceId = this.code;
       const data = {
         wearerDeviceId,
         ...this.deviceInfo

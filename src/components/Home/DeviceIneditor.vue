@@ -136,6 +136,7 @@ export default {
       }
       this.$http.post(`${config.httpBaseUrl}/wearer/update`, data).then(res => {
         if (res.code === 200) {
+          console.log(data)
           this.$emit('addDevice', this.deviceInfo)
           Toast({
             message: '信息修改成功',
